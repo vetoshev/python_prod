@@ -1,0 +1,24 @@
+version: 1
+formatters:
+  simple:
+    class: logging.Formatter
+    format: '%(asctime)s %(levelname)s: %(message)s'
+handlers:
+  file_handler_debug:
+    class: logging.FileHandler
+    filename: stackoverflow_analytics.log
+    level: DEBUG
+    formatter: simple
+  file_handler_warn:
+    class: logging.FileHandler
+    filename: stackoverflow_analytics.warn
+    level: WARNING
+    formatter: simple
+loggers:
+  task_Vetoshev_Kirill_stackoverflow_analytics:
+    level: DEBUG
+    handlers: [file_handler_debug]
+    propagate: True
+root:
+  level: WARNING
+  handlers: [file_handler_warn]
